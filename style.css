@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header {
+  background-color: #f44;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+header h1 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+header nav {
+  display: block;
+  float: right;
+  margin-top: 10px;
+
+}
+
+header nav ul {
+  display: inline-block;
+
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a{
+  padding: 30px 10px 24px;
+}
+
+header nav ul li a:hover {
+  background-color: #f22;
+  color: #ffa
+}
+
+main {
+  min-height: 580px;
+  padding: 20px 50px;
+}
+
+main .filters {
+  text-align: center;
+  margin: 20px 0;
+}
+
+main .filters #searchbox {
+  display: inline;
+}
+
+main .filters #searchbox #products-filter {
+  width: 400px;
+}
+
+main .filters #dropdown {
+  display: inline;
+  margin-left: 100px;
+}
+
+main .showcase {
+  margin: 50px auto ;
+  max-width: 1000px;
+}
+
+main .showcase .product-box {
+  display: inline-block;
+  margin: 10px;
+  background-color: #fcc;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  text-align: center;
+  padding: 5px;
+}
+
+main .showcase .product-box img {
+  width: 150px;
+  border: solid 1px #ccc;
+}
+
+main .showcase .product-box .container {
+  padding: 10px;
+  margin: 3px;
+  line-height: 1.5;
+}
+
+main .showcase .product-box .container a {
+  text-decoration: underline;
+  color: #00a;
+}
+
+main #add-btn {
+  display: block;
+  margin: auto;
+  width: 130px;
+}
+
+footer {
+  font-size: 0.8em;
+  text-align: center;
+  background-color: #f44;
+  color: #fff;
+  padding: 10px 0;
+}
