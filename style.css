@@ -140,4 +140,7 @@ footer {
   header nav ul li a{
     padding: 10px 10px 10px;
   }
+  #searchbox  #products-filter {
+    max-width: 100%;
+  }
 }
