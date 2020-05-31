@@ -24,7 +24,6 @@ header nav {
   display: block;
   float: right;
   margin-top: 10px;
-
 }
 
 header nav ul {
@@ -37,7 +36,7 @@ header nav ul li {
 }
 
 header nav ul li a{
-  padding: 30px 10px 24px;
+  padding: 30px 10px 22px;
 }
 
 header nav ul li a:hover {
@@ -59,18 +58,23 @@ main .filters #searchbox {
   display: inline;
 }
 
+main .filters #searchbox label {
+  display: block;
+}
+
 main .filters #searchbox #products-filter {
   width: 400px;
+  margin-bottom: 10px;
 }
 
 main .filters #dropdown {
-  display: inline;
-  margin-left: 100px;
+  display: block;
 }
 
 main .showcase {
-  margin: 50px auto ;
-  max-width: 1000px;
+  margin: auto auto 30px;
+  max-width: 1200px;
+  text-align: center;
 }
 
 main .showcase .product-box {
@@ -78,13 +82,14 @@ main .showcase .product-box {
   margin: 10px;
   background-color: #fcc;
   border-radius: 5px;
-  border: solid 1px #ccc;
+  border: solid 3px #ccc;
   text-align: center;
   padding: 5px;
 }
 
 main .showcase .product-box img {
   width: 150px;
+  height: 150px;
   border: solid 1px #ccc;
 }
 
@@ -111,4 +116,28 @@ footer {
   background-color: #f44;
   color: #fff;
   padding: 10px 0;
+}
+
+@media (max-width: 900px) {
+  header {
+    padding: 10px 0;
+  }
+
+  header h1 {
+    display: block;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  header nav {
+    display: block;
+    float: none;
+    text-align: center;
+  }
+  header nav ul {
+    display: block;
+  }
+  header nav ul li a{
+    padding: 10px 10px 10px;
+  }
 }
