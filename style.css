@@ -11,6 +11,10 @@ a {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
   background-color: #f44;
   color: #fff;
   padding: 10px 80px;
@@ -34,7 +38,7 @@ header nav {
 
 header nav ul {
   display: inline-block;
-
+  
 }
 
 header nav ul li {
@@ -58,25 +62,33 @@ main {
 }
 
 main .filters {
+  position: fixed;
+  top: 50px;
+  left: 0%;
+  z-index: 1;
+  background-color: #fff;  
+  width: 100%;
   text-align: center;
-  margin: 20px 0;
+  margin: 12px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 main .filters #searchbox {
-  display: inline;
-}
-
-main .filters #searchbox label {
-  display: block;
+  display: inline-block;
 }
 
 main .filters #searchbox #products-filter {
-  width: 400px;
-  margin-bottom: 10px;
+  display: inline-block;
+  width: 210px;
 }
 
 main .filters #dropdown {
-  display: block;
+  display: inline-block;
+}
+
+main .products-container {
+  margin-top: 130px;
 }
 
 main .showcase {
@@ -174,11 +186,17 @@ footer {
     padding: 0%;
   }
 
+  main .filters {
+    top: 88px;
+    margin: 0;
+  }
+  
   main #searchbox  #products-filter {
     max-width: 100%;
   }
 
   main .description-p {
+    padding: 0 30px;
     display: block;
     max-width: 100%;
   }
@@ -189,11 +207,29 @@ footer {
 }
 
 @media (max-width: 400px) {
+
+  body {
+    font-size: 0.8rem;
+  }
+  
   header {
     padding: 1%;
   }
+
   ul li a {
     padding: 0px;
-    display: block;
+    display: none;
+  }
+
+  main .filters {
+    top: 47px;
+  }
+  
+  main .filters input {
+    margin-bottom: 5px;
+  }
+
+  main .description-p {
+    padding: 0 10px;
   }
 }

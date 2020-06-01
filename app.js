@@ -65,7 +65,7 @@ function showProduct (event) {
 
 function categories (event) {
   products.forEach(pro => {
-    if ((event.target.value === "")) {
+    if ((event.target.value === "categories")) {
       pro.parentElement.parentElement.style.display = "inline-block";
     } else {
       if (pro.parentElement.parentElement.classList.contains(event.target.value)) {
@@ -106,26 +106,44 @@ function createProduct (name, price, im, cat) {
     }
   }
 
+  const cart = document.createElement("img");
+  cart.style.width = "30px";
+  cart.style.height = "30px";
+  cart.style.position = "relative";
+  cart.style.bottom = "-27px";
+  cart.style.right = "-15px";
+  cart.style.border = "none";
+  cart.style.cursor = "pointer";
+  cart.src = "img/cart.png";
+
   const removeButton = document.createElement("button");
   removeButton.textContent = "remove";
   removeButton.classList = "remove";
+  removeButton.style.cursor = "pointer";
+  
   const editButton = document.createElement("button");
   editButton.textContent = "edit";
   editButton.classList = "edit";
+  editButton.style.cursor = "pointer";
+  
   const p = document.createElement("p");
   p.textContent = `$${chars[1]}`;
+  
   const a = document.createElement("a");
   a.textContent = "Description";
   a.href = "#";
+  
   const h3 = document.createElement("h3");
   h3.textContent = chars[0];
   const container = document.createElement("div");
+  
   container.classList = "container";
   container.appendChild(h3);
   container.appendChild(a);
   container.appendChild(p);
   container.appendChild(editButton);
   container.appendChild(removeButton);
+  container.appendChild(cart);
   const img = document.createElement("img");
   img.src = chars[2];
   const productBox = document.createElement("div");
@@ -169,7 +187,7 @@ for (let i = 0; i < pr.length; i++) {
 
 function outsideDropdown (event) {
   if (event.target.tagName === "SELECT" || event.target.tagName === "INPUT") {
-    dropdown.value = "";
+    dropdown.value = "categories";
   } 
 }
 
