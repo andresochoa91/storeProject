@@ -42,6 +42,15 @@ const pr = [
   }
 ];
 
+const main = document.querySelector("main");
+
+dropdown.addEventListener("click", categories);
+input.addEventListener("keyup", showProduct);
+addBtn.addEventListener("click", cr);
+showcase.addEventListener("click", removeProduct);
+showcase.addEventListener("click", editProduct);
+main.addEventListener("click", outsideDropdown);
+
 
 function showProduct (event) {
   /* const containers =  */
@@ -68,10 +77,35 @@ function categories (event) {
   })
 }
 
-function createProduct (name = prompt("Name"), 
-                        price = prompt("Price"), 
-                        im = prompt("Image link"), 
-                        cat = prompt("Category")) {
+function tryAgain (name) {
+  if (name === "")  {
+    while (name === "") {
+      name = prompt("Your input can't be empty, try again")
+    } 
+    return name; 
+  } else {
+    return null; 
+  }
+}
+
+function createProduct (name, price, im, cat) {
+  let chars = [name, price, im, cat];
+  let chars2 = ["Insert the name of your product",
+                "Insert the price of your product",
+                "Insert URL of the image of the product",
+                "Insert the category of your product"
+              ];
+  
+  for (let i = 0; i < chars.length; i++) {
+    if (!chars[i]) chars[i] = prompt(chars2[i]); 
+    if (!chars[i]) {
+      chars[i] = tryAgain(chars[i]);
+      if (!chars[i]) {
+        return null;
+      }  
+    }
+  }
+
   const removeButton = document.createElement("button");
   removeButton.textContent = "remove";
   removeButton.classList = "remove";
@@ -79,12 +113,12 @@ function createProduct (name = prompt("Name"),
   editButton.textContent = "edit";
   editButton.classList = "edit";
   const p = document.createElement("p");
-  p.textContent = `$${price}`;
+  p.textContent = `$${chars[1]}`;
   const a = document.createElement("a");
   a.textContent = "Description";
   a.href = "#";
   const h3 = document.createElement("h3");
-  h3.textContent = name;
+  h3.textContent = chars[0];
   const container = document.createElement("div");
   container.classList = "container";
   container.appendChild(h3);
@@ -93,14 +127,14 @@ function createProduct (name = prompt("Name"),
   container.appendChild(editButton);
   container.appendChild(removeButton);
   const img = document.createElement("img");
-  img.src = im;
+  img.src = chars[2];
   const productBox = document.createElement("div");
-  productBox.classList = `product-box ${cat}`;
+  productBox.classList = `product-box ${chars[3]}`;
   productBox.appendChild(img);
   productBox.appendChild(container);
   showcase.appendChild(productBox);
   products = Array.from(document.querySelectorAll(".container h3"));
-  return {name: name, price: price, img: im, cat: cat};
+  return {name: chars[0], price: chars[1], img: chars[2], cat: chars[3]};
 }
 
 function cr () {
@@ -117,10 +151,10 @@ function removeProduct (event) {
 
 function editProduct (event) {
   if (event.target.classList.contains("edit")) {
-    const name = prompt("Assign a new name");
-    const img = prompt("Assign a new image (URL)");
-    const price = prompt("Assign a new price");
-    const cat = prompt("Assign a new category");
+    const name = prompt("Assign a new name\n\nLeave empty to not do changes and press OK to continue");
+    const img = prompt("Assign a new image (URL)\n\nLeave empty to not do changes and press OK to continue");
+    const price = prompt("Assign a new price\n\nLeave empty to not do changes and press OK to continue");
+    const cat = prompt("Assign a new category\n\nLeave empty to not do changes and press OK to continue");
     if (name) event.target.parentElement.querySelector("h3").textContent = name;
     if (price) event.target.parentElement.querySelector("p").textContent = `$${price}`;
     if (cat) event.target.parentElement.parentElement.classList = `product-box ${cat}`;
@@ -133,9 +167,9 @@ for (let i = 0; i < pr.length; i++) {
   createProduct(prod.name, prod.price, prod.img, prod.cat);
 }
 
-dropdown.addEventListener("click", categories);
-input.addEventListener("keyup", showProduct);
-addBtn.addEventListener("click", cr);
-showcase.addEventListener("click", removeProduct);
-showcase.addEventListener("click", editProduct);
+function outsideDropdown (event) {
+  if (event.target.tagName === "SELECT" || event.target.tagName === "INPUT") {
+    dropdown.value = "";
+  } 
+}
 
