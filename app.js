@@ -3,44 +3,26 @@ const input = document.querySelector("#products-filter");
 const showcase = document.querySelector(".showcase");
 const dropdown = document.querySelector("#dropdown select");
 const addBtn = document.querySelector("#add-btn");
-const pr = [
-  {
-    name: "Milo",
-    price: "10",
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.J7mk3SVy5LSV0Oru8EMi0AHaHa%26pid%3DApi&f=1",
-    cat: "beverages"
-  },
-  {
-    name: "Oreo",
-    price: "20",
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._90P_8cj0z2GqnKen6EKjQHaHa%26pid%3DApi&f=1",
-    cat: "snacks"
-  },
-  {
-    name: "Garlic",
-    price: "1",
-    img: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.myelomacrowd.org%2Fwp-content%2Fuploads%2F2014%2F12%2Fphotodune-7269783-garlic-l.jpg&f=1&nofb=1",
-    cat: "vegetables"
-  },
-  {
-    name: "Jack Daniels",
-    price: "70",
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.worldwidebev.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2F1%2Fimage%2F1200x1200%2F9df78eab33525d08d6e5fb8d27136e95%2F1%2F0%2F1041-jack-daniels-tennessee-whiskey_2_1.jpg&f=1&nofb=1",
-    cat: "alcohol"
-  },
-  {
-    name: "Avocado",
-    price: "2",
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.goodhousekeeping.co.uk%2Fmain%2Fembedded%2F24723%2Fbest-way-peeling-avocado-goodhousekeepinguk.jpg&f=1&nofb=1",
-    cat: "vegetables"
-  },
-  {
-    name: "Veggie Burger",
-    price: "2",
-    img: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0750%2F1095%2Fproducts%2F71eEB48W-VL._SL1417_1024x1024.jpeg%3Fv%3D1422102892&f=1&nofb=1",
-    cat: "meat"
+
+class Product {
+  constructor(name, price, cat, img) {
+    this.name = name;
+    this.price = price;
+    this.cat = cat;
+    this.img = img;
   }
+}
+
+const pr = [
+  new Product("Milo", "10", "beverages", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.J7mk3SVy5LSV0Oru8EMi0AHaHa%26pid%3DApi&f=1"), 
+  new Product("Oreo", "20", "snacks","https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._90P_8cj0z2GqnKen6EKjQHaHa%26pid%3DApi&f=1"), 
+  new Product("Garlic", "1", "vegetables", "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.myelomacrowd.org%2Fwp-content%2Fuploads%2F2014%2F12%2Fphotodune-7269783-garlic-l.jpg&f=1&nofb=1"),
+  new Product("Jack Daniel's", "70", "alcohol", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.worldwidebev.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2F1%2Fimage%2F1200x1200%2F9df78eab33525d08d6e5fb8d27136e95%2F1%2F0%2F1041-jack-daniels-tennessee-whiskey_2_1.jpg&f=1&nofb=1"), 
+  new Product("Avocado", "2", "vegetables", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.goodhousekeeping.co.uk%2Fmain%2Fembedded%2F24723%2Fbest-way-peeling-avocado-goodhousekeepinguk.jpg&f=1&nofb=1"), 
+  new Product("Veggie Burger", "2", "meat", "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0750%2F1095%2Fproducts%2F71eEB48W-VL._SL1417_1024x1024.jpeg%3Fv%3D1422102892&f=1&nofb=1")
 ];
+
+
 
 const main = document.querySelector("main");
 
